@@ -1,0 +1,263 @@
+:root {
+	--bg-color: #ffffff;
+	--text-color: #555;
+	--footer-bg: #f9f9f9;
+	--footer-border: #eee;
+	--github-btn-bg: #000;
+	--github-btn-hover: #333;
+}
+
+[data-theme="dark"] {
+	--bg-color: #1a1a1a;
+	--text-color: #bebebe;
+	--footer-bg: #242424;
+	--footer-border: #333;
+	--github-btn-bg: #333;
+	--github-btn-hover: #444;
+}
+
+[data-theme="dark"] {
+	--logo-filter: invert(1);
+}
+
+[data-theme="light"] {
+	--logo-filter: none;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	transition: background-color 0.3s, color 0.3s;
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	position: relative;
+	overflow-x: hidden;
+	min-height: 100vh;
+}
+
+.main-content {
+	width: 100%;
+	flex: 1;
+	position: relative;
+}
+
+.main-content::before {
+	content: "";
+	position: fixed;
+	top: 15%;
+	left: -50px;
+	width: 40%;
+	height: 20px;
+	background: linear-gradient(90deg, #25acff25, #1cd48b3f);
+	border-radius: 10px;
+	opacity: 0.8;
+	z-index: -1;
+	transform: rotate(15deg);
+}
+
+.main-content::after {
+	content: "";
+	position: fixed;
+	bottom: calc(15% + 90px);
+	right: -50px;
+	width: 60%;
+	height: 20px;
+	background: linear-gradient(90deg, #0076fd3f, #c267ff25);
+	border-radius: 10px;
+	opacity: 0.8;
+	z-index: -1;
+	transform: rotate(-15deg);
+}
+
+.basic-info-block {
+	width: 80%;
+	max-width: 800px;
+	height: auto;
+	margin: auto;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 20px 0;
+	text-align: center;
+	border-radius: 15px;
+	vertical-align: middle;
+}
+
+.logo {
+	display: block;
+	width: 80%;
+	max-width: 160px;
+	height: auto;
+	margin: 20px auto;
+}
+
+.name {
+	display: block;
+	width: 100%;
+	max-width: 400px;
+	height: auto;
+	margin: 10px auto;
+}
+
+.slogan {
+	display: block;
+	width: 100%;
+	max-width: 400px;
+	height: auto;
+	margin: 5px auto;
+}
+
+.invert-on-dark {
+	filter: var(--logo-filter);
+}
+
+.theme-toggle {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	background: rgba(128, 128, 128, 0.1);
+	border: none;
+	cursor: pointer;
+	padding: 8px;
+	border-radius: 50%;
+	transition: all 0.3s ease;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.theme-toggle:hover {
+	background: rgba(128, 128, 128, 0.2);
+	transform: scale(1.1);
+}
+
+.theme-toggle svg {
+	width: 24px;
+	height: 24px;
+	fill: var(--text-color);
+	transition: transform 0.5s ease;
+}
+
+[data-theme="dark"] .theme-toggle svg {
+	transform: rotate(360deg);
+}
+
+.moon-icon {
+	display: none;
+}
+
+[data-theme="dark"] .sun-icon {
+	display: none;
+}
+
+[data-theme="dark"] .moon-icon {
+	display: block;
+}
+
+footer {
+	padding: 20px;
+	text-align: center;
+	font-size: 0.9em;
+	color: #555;
+	background-color: #f9f9f9;
+	transition: background-color 0.3s, color 0.3s;
+	border-top: 1px solid #eee;
+	margin-top: 40px;
+}
+
+.legal-info-block {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 5px;
+}
+
+.legal-info-block>div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+footer {
+	background-color: var(--footer-bg);
+	border-top: 1px solid var(--footer-border);
+	color: var(--text-color);
+}
+
+.github-button {
+	background-color: var(--github-btn-bg);
+	color: #fff;
+	display: inline-flex;
+	align-items: center;
+	border: none;
+	border-radius: 0.5em;
+	padding: 0.5em 1em;
+	cursor: pointer;
+	box-shadow: 0 0.125em 0.25em rgba(0, 0, 0, 0.25);
+	transition: background-color 0.3s, transform 0.1s;
+	font-size: 1em;
+	margin-top: 1em;
+	text-decoration: none;
+}
+
+.github-button {
+	background-color: var(--github-btn-bg);
+}
+
+.github-button:hover {
+	background-color: var(--github-btn-hover);
+}
+
+.github-button:active {
+	transform: scale(0.98);
+}
+
+.github-button img {
+	margin-right: 0.5em;
+	width: 1.5em;
+	height: 1.5em;
+}
+
+@media screen and (max-width: 768px) {
+	.basic-info-block {
+		padding: 10px;
+	}
+
+	.logo {
+		max-width: 120px;
+	}
+
+	.name {
+		max-width: 300px;
+	}
+
+	.slogan {
+		max-width: 300px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.logo {
+		width: 50%;
+		max-width: 100px;
+	}
+
+	.legal-info-block>div>span {
+		font-size: 12px;
+	}
+
+	.legal-info-block>span {
+		font-size: 11px;
+	}
+
+	.github-button {
+		padding: 0.4em 0.8em;
+		font-size: 0.9em;
+	}
+}
